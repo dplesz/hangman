@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  .picture(style="background-image:url('images/hangman#{numberWrong}.png');")
+    .stats
+      p
+        |wins:  #{wins}<br/>
+        |loses: #{loses}
+    .wordbox
+      |#{word}
+    .float-clear
+    .letters
+      | #{letters}
+    .inputs
+      p 
+        form(method='POST')
+          input(type='hidden',name='userID' value='#{userID}')
+          if (numberWrong == 10)
+            input(type='hidden',name='letter' value='')
+            input(type='submit',value='play again')
+          else if (newGame == '0')
+            input(type='text', name='letter', maxlength='1',size='1',id='letterGuessed' value='' autofocus='autofocus')
+            input(type='submit',value='guess')
+          else
+            input(type='hidden',name='letter' value='')
+            input(type='submit',value='play again')
+  
