@@ -3,9 +3,8 @@
 # hangman
 
 
-
 ## Usage
-
+node app.js
 
 
 ## Developing
